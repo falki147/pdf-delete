@@ -1,0 +1,45 @@
+@import "page";
+@import "button";
+
+body, html {
+    margin: 0;
+}
+
+body {
+    height: 100vh;
+}
+
+.save-button {
+    width: 100%;
+
+    &:disabled span {
+        position: relative;
+
+        &::before {
+            content: "";
+            border: 3px solid white;
+            border-right-color: transparent;
+            border-radius: 10px;
+            width: 12px;
+            height: 12px;
+            display: block;
+            left: -22px;
+            position: absolute;
+            animation-name: save-button-animation;
+            animation-duration: 1s;
+            animation-timing-function: ease;
+            animation-iteration-count: infinite;
+        }
+    }
+}
+
+@keyframes save-button-animation {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
