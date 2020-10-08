@@ -23,3 +23,37 @@ button:focus {
     outline: 1px solid #fff;
     outline-offset: -4px;
 }
+
+.save-button {
+    width: 100%;
+
+    &.loading span {
+        position: relative;
+
+        &::before {
+            content: "";
+            border: 3px solid white;
+            border-right-color: transparent;
+            border-radius: 10px;
+            width: 12px;
+            height: 12px;
+            display: block;
+            left: -22px;
+            position: absolute;
+            animation-name: save-button-animation;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+    }
+}
+
+@keyframes save-button-animation {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
