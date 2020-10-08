@@ -10,6 +10,8 @@ import SaveButton from "./SaveButton";
 function initialize() {
     const pageContainer = document.createElement("div");
     pageContainer.classList.add("page-container");
+    pageContainer.classList.add("empty");
+    pageContainer.innerText = "Drag & drop PDF here";
     document.body.appendChild(pageContainer);
 
     const saveButton = new SaveButton();
@@ -20,6 +22,11 @@ function initialize() {
     let filename = "";
 
     dropzone.onDrop(async file => {
+        if (pageContainer.classList.contains("empty")) {
+            pageContainer.innerText = "";
+            pageContainer.classList.remove("empty");
+        }
+
         const data = await file.arrayBuffer();
         const renderer = await PDFRenderer.create(data);
 

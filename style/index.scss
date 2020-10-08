@@ -1,12 +1,14 @@
 @import "page";
 @import "button";
 
-body, html {
-    margin: 0;
-}
-
 body {
+    margin: 0;
+    padding: 10px;
+    box-sizing: border-box;
     height: 100vh;
+    font-size: 16px;
+    font-family: sans-serif;
+    color: #0069ed;
 }
 
 .save-button {
