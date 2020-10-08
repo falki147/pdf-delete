@@ -6,6 +6,7 @@ import { PDFDocument } from "pdf-lib";
 import fileSaver from "file-saver";
 import "../style/index.scss";
 import SaveButton from "./SaveButton";
+import Button from "./Button";
 
 function initialize() {
     const pageContainer = document.createElement("div");
@@ -17,8 +18,11 @@ function initialize() {
     const saveButton = new SaveButton();
     document.body.appendChild(saveButton.element);
 
+    const resetButton = new Button("Reset");
+    document.body.appendChild(resetButton.element);
+
     const dropzone = new Dropzone(document.body);
-    const allPages = [];
+    let allPages = [];
     let filename = "";
 
     dropzone.onDrop(async file => {
@@ -90,6 +94,12 @@ function initialize() {
         finally {
             saveButton.loading = false;
         }
+    });
+
+    resetButton.onClick(() => {
+        allPages = [];
+        pageContainer.classList.add("empty");
+        pageContainer.innerText = "Drag & drop PDF here";
     });
 }
 

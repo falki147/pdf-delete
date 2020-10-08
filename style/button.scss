@@ -1,8 +1,9 @@
 button {
+    width: 100%;
     display: inline-block;
     border: none;
     padding: 16px 32px;
-    margin: 0;
+    margin: 5px 0;
     text-decoration: none;
     background-color: #0069ed;
     color: #ffffff;
@@ -12,21 +13,33 @@ button {
     transition: background-color 250ms ease-in-out;
     -webkit-appearance: none;
     -moz-appearance: none;
-}
 
-button:hover,
-button:focus {
-    background-color: #0053ba;
-}
+    &:hover, &:focus {
+        background-color: #0053ba;
+    }
 
-button:focus {
-    outline: 1px solid #fff;
-    outline-offset: -4px;
+    &:focus {
+        outline: 1px solid #ffffff;
+        outline-offset: -4px;
+    }
+
+    &.secondary {
+        border: 1px solid #0069ed;
+        background: none;
+        color: #0069ed;
+
+        &:hover, &:focus {
+            background-color: #dbe4ec;
+        }
+
+        &:focus {
+            outline: 1px solid #0069ed;
+            outline-offset: -4px;
+        }
+    }
 }
 
 .save-button {
-    width: 100%;
-
     &.loading span {
         position: relative;
 

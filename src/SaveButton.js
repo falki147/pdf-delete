@@ -2,7 +2,7 @@ import Button from "./Button";
 
 export default class SaveButton extends Button {
     constructor() {
-        super("Save");
+        super("Save", true);
         this._element.classList.add("save-button");
     }
 
